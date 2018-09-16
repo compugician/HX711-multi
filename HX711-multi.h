@@ -46,7 +46,7 @@ class HX711MULTI
 		void read(long *result = NULL);
 
 		// same as read, but does not offset the values according to the tare
-		void HX711MULTI::readRaw(long *result = NULL);
+		void readRaw(long *result = NULL);
 
 		// set the OFFSET value for tare weight
 		// times: how many times to read the tare value
