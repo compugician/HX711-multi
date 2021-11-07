@@ -138,12 +138,12 @@ void HX711MULTI::readRaw(long *result) {
 	// pulse the clock pin 24 times to read the data
 	for (i = 0; i < 24; ++i) {
 		digitalWrite(PD_SCK, HIGH);
+		digitalWrite(PD_SCK, LOW);
 		if (NULL!=result) {
 			for (j = 0; j < COUNT; ++j) {
 				bitWrite(result[j], 23-i, digitalRead(DOUT[j]));
 			}
-		}
-		digitalWrite(PD_SCK, LOW);
+		}		
 	}
    
 	// set the channel and the gain factor for the next reading using the clock pin
