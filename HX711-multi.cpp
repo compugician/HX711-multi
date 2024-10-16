@@ -138,6 +138,7 @@ void HX711MULTI::readRaw(long *result) {
 	// pulse the clock pin 24 times to read the data
 	for (i = 0; i < 24; ++i) {
 		digitalWrite(PD_SCK, HIGH);
+		digitalWrite(PD_SCK, LOW);//the time between high to low most be less than 50usec.for more channels  
 		if (NULL!=result) {
 			for (j = 0; j < COUNT; ++j) {
 				bitWrite(result[j], 23-i, digitalRead(DOUT[j]));
